@@ -1,9 +1,9 @@
 public class $02QuadraticEquation {
 
     public static Roots findRoots(double a, double b, double c) {
-        double a1 = Math.pow(b, 2) - 4 * a * c;
-        double x1 = (double) (b * -1 + Math.sqrt(a1)) / (a * 2);
-        double x2 = (double) (b * -1 - Math.sqrt(a1)) / (a * 2);
+        double a1 = Math.sqrt(Math.pow(b, 2) - 4 * a * c);
+        double x1 = (double) (b * -1 + a1) / (a * 2);
+        double x2 = (double) (b * -1 - a1) / (a * 2);
         return new Roots(x1, x2);
     }
 
