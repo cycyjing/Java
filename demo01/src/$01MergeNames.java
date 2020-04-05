@@ -21,10 +21,29 @@ public class $01MergeNames {
 //        noDupList.toArray(str);
 
         // way 2
-        Stream<String> n1 = Stream.of(names1);
-        Stream<String> n2 = Stream.of(names2);
-        Stream<String> names = Stream.concat(n1, n2);
-        String[] both = names.toArray(String[]::new);
+//        Stream<String> n1 = Stream.of(names1);
+//        Stream<String> n2 = Stream.of(names2);
+//        Stream<String> names = Stream.concat(n1, n2);
+//        String[] both = names.toArray(String[]::new);
+//        List<String> noDupList = new ArrayList<>();
+//        Arrays.asList(both).stream().forEach(
+//                str -> {
+//                    if (!noDupList.contains(str)) {
+//                        noDupList.add(str);
+//                    }
+//                }
+//        );
+//        String[] str = new String[noDupList.size()];
+//        noDupList.toArray(str);
+
+        // way 3
+        String[] both = new String[names1.length + names2.length];
+        for (int i = 0; i < names1.length; i++) {
+            both[i] = names1[i];
+        }
+        for (int i = 0; i < names2.length; i++) {
+            both[names1.length + i] = names2[i];
+        }
         List<String> noDupList = new ArrayList<>();
         Arrays.asList(both).stream().forEach(
                 str -> {
@@ -35,8 +54,6 @@ public class $01MergeNames {
         );
         String[] str = new String[noDupList.size()];
         noDupList.toArray(str);
-
-
 
         return str;
     }
