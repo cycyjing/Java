@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class MergeNames {
 
@@ -36,25 +34,30 @@ public class MergeNames {
 //        noDupList.toArray(str);
 
         // way 3
-        String[] both = new String[names1.length + names2.length];
-        for (int i = 0; i < names1.length; i++) {
-            both[i] = names1[i];
-        }
-        for (int i = 0; i < names2.length; i++) {
-            both[names1.length + i] = names2[i];
-        }
-        List<String> noDupList = new ArrayList<>();
-        Arrays.asList(both).stream().forEach(
-                str -> {
-                    if (!noDupList.contains(str)) {
-                        noDupList.add(str);
-                    }
-                }
-        );
-        String[] str = new String[noDupList.size()];
-        noDupList.toArray(str);
+//        String[] both = new String[names1.length + names2.length];
+//        for (int i = 0; i < names1.length; i++) {
+//            both[i] = names1[i];
+//        }
+//        for (int i = 0; i < names2.length; i++) {
+//            both[names1.length + i] = names2[i];
+//        }
+//        List<String> noDupList = new ArrayList<>();
+//        Arrays.asList(both).stream().forEach(
+//                str -> {
+//                    if (!noDupList.contains(str)) {
+//                        noDupList.add(str);
+//                    }
+//                }
+//        );
+//        String[] str = new String[noDupList.size()];
+//        noDupList.toArray(str);
+//
+//        return str;
 
-        return str;
+        // way 4
+        Set<String> names = new HashSet<>(Arrays.asList(names1));
+        names.addAll(Arrays.asList(names2));
+        return names.toArray(new String[0]);
     }
 
     public static void main(String[] args) {
