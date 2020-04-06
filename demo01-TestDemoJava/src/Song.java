@@ -11,15 +11,17 @@ public class Song {
     }
 
     public boolean isRepeatingPlaylist() {
-        Song slow = this.nextSong;
-        Song fast = slow == null ? null : slow.nextSong;
-        while (fast != null) {
-            if (slow == this || slow == fast)
+        Song song = this.nextSong;
+        Song temp = song == null ? null : song.nextSong;
+        while (temp != null) {
+            // the playlist only has one song 单曲循环
+            if (song == this || song == temp)
                 return true;
-            slow = slow.nextSong;
-            fast = fast.nextSong;
-            if (fast != null)
-                fast = fast.nextSong;
+            // others
+            song = song.nextSong;
+            temp = temp.nextSong;
+            if (temp != null)
+                temp = temp.nextSong;
         }
         return false;
     }
