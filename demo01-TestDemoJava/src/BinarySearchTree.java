@@ -11,8 +11,8 @@ public class BinarySearchTree {
 //        else
 //            // value we are searching for is greater than that held by node we are at
 //            return contains(root.left, value);
-
-        // solution 2
+//
+//        // solution 2
         // Traverse untill root reaches to dead end
         while (root != null) {
             // pass right subtree as new tree
