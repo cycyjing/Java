@@ -1,35 +1,31 @@
 public class Question2 {
 
     static String formatTime(int millis) {
-        Integer ss = 1000;
-        Integer mi = ss * 60;
+        final int ms = 1000;
+        final int m = ms * 60;
 
-        int minute = Math.round(millis / mi);
-        int second = Math.round((millis - minute * mi) / ss);
+        int minute = Math.round(millis / m);
+        int second = Math.round((millis - minute * m) / ms);
 
 
         StringBuffer sb = new StringBuffer();
 
-        if (minute > 0) {
-            sb.append(minute);
-        }
         if (minute == 0) {
             sb.append(0);
         }
-        if (second > 0) {
-            if (second < 10) {
-                sb.append(":" + second + "0");
-            } else {
-                sb.append(":" + second);
-
-            }
+        if (minute > 0) {
+            sb.append(minute);
         }
-        if (
-                second == 0
-        ) {
+        if (second == 0) {
             sb.append(":00");
         }
-        System.out.println(sb.toString());
+        if (second > 0) {
+            if (second < 10) {
+                sb.append(":0" + second);
+            } else {
+                sb.append(":" + second);
+            }
+        }
         return sb.toString();
     }
 
