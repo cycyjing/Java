@@ -20,8 +20,8 @@ public class Folders {
         doc.getDocumentElement().normalize();
 
         final NodeList nList = doc.getElementsByTagName("folder");
-        for (int temp = 0; temp < nList.getLength(); ++temp) {
-            final Node node = nList.item(temp);
+        for (int i = 0; i < nList.getLength(); ++i) {
+            final Node node = nList.item(i);
             if (node.getNodeType() == Node.ELEMENT_NODE) {
                 final Element e = (Element) node;
                 final String name = e.getAttribute("name");
