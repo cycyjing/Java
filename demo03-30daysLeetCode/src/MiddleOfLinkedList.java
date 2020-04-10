@@ -49,7 +49,7 @@ public class MiddleOfLinkedList {
 
 class ListNode {
     int val;
-    ListNode next;//list
+    ListNode next;
 
     ListNode(int x) {
         val = x;
