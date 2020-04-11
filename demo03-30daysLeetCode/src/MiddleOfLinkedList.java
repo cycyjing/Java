@@ -37,6 +37,7 @@ public class MiddleOfLinkedList {
 //            length++;
 //        }
 //
+        // find the middle node
 //        int middle = length / 2;
 //        current = head;
 //        int i = 0;
