@@ -29,21 +29,31 @@ public class MiddleOfLinkedList {
 //        } else {
 //            return null;
 //        }
-        int length = 1;
-        ListNode current = head;
-        while (current.next != null) {
-            current = current.next;
-            length++;
-        }
+        // solution 1
+//        int length = 1;
+//        ListNode current = head;
+//        while (current.next != null) {
+//            current = current.next;
+//            length++;
+//        }
+//
+//        int middle = length / 2;
+//        current = head;
+//        int i = 0;
+//        while (i < middle) {
+//            current = current.next;
+//            i++;
+//        }
+//        return current;
 
-        int middle = length / 2;
-        current = head;
-        int i = 0;
-        while (i < middle) {
-            current = current.next;
-            i++;
+        // solution 2
+        ListNode slow = head, fast = head;
+        // fast is twice as slow
+        while (fast != null || fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return current;
+        return slow;
     }
 }
 
