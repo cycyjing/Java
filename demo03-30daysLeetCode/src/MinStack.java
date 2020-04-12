@@ -1,3 +1,5 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
 public class MinStack {
@@ -79,3 +81,27 @@ class Solution2 {
     }
 }
 
+class Solution3 {
+    Deque<Integer> deque = new ArrayDeque<>();
+
+    public void push(int x) {
+        deque.offerFirst(x);
+    }
+
+    public void pop() {
+        deque.pollFirst();
+    }
+
+    public int top() {
+        return deque.peekFirst();
+    }
+
+    public int getMin() {
+        int min = Integer.MAX_VALUE;
+        for (int tep : deque) {
+            if (tep < min || tep == min)
+                min = tep;
+        }
+        return min;
+    }
+}
