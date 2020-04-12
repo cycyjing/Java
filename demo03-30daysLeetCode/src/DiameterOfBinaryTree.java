@@ -1,18 +1,18 @@
 public class DiameterOfBinaryTree {
-    int ans;
+    int length;
 
     public int diameterOfBinaryTree(TreeNode root) {
-        ans = 1;
-        length(root);
-        return ans - 1;
+        length = 1;
+        count(root);
+        return length - 1;
     }
 
-    public int length(TreeNode node) {
+    public int count(TreeNode node) {
         if (node == null)
             return 0;
-        int left = length(node.left);
-        int right = length(node.right);
-        ans = Math.max(ans, left + right + 1);
+        int left = count(node.left);
+        int right = count(node.right);
+        length = Math.max(length, left + right + 1);
         return Math.max(left, right) + 1;
     }
 }
