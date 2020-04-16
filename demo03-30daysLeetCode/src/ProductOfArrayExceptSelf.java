@@ -14,20 +14,36 @@ public class ProductOfArrayExceptSelf {
 //        return output;
 
         // solution 2
+//        int n = nums.length;
+//        int[] output = new int[n];
+//        int[] forward = new int[n];
+//        int[] backward = new int[n];
+//        forward[0] = 1;
+//        backward[n - 1] = 1;
+//        for (int i = 1; i < n; i++) {
+//            forward[i] = forward[i - 1] * nums[i - 1];
+//        }
+//        for (int i = n - 2; i >= 0; i--) {
+//            backward[i] = backward[i + 1] * nums[i + 1];
+//        }
+//        for (int i = 0; i < n; i++) {
+//            output[i] = forward[i] * backward[i];
+//        }
+//        return output;
+
+        // solution 3
         int n = nums.length;
         int[] output = new int[n];
-        int[] forward = new int[n];
-        int[] backward = new int[n];
-        forward[0] = 1;
-        backward[n - 1] = 1;
+        output[0] = 1;
+        int backward = 1;
+        // forward
         for (int i = 1; i < n; i++) {
-            forward[i] = forward[i - 1] * nums[i - 1];
+            output[i] = output[i - 1] * nums[i - 1];
         }
-        for (int i = n - 2; i >= 0; i--) {
-            backward[i] = backward[i + 1] * nums[i + 1];
-        }
-        for (int i = 0; i < n; i++) {
-            output[i] = forward[i] * backward[i];
+        // backward
+        for (int i = n - 1; i >= 0; i--) {
+            output[i] *= backward;
+            backward *= nums[i];
         }
         return output;
     }
