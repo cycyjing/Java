@@ -18,17 +18,28 @@ public class SingleNumber {
 //        return list.get(0);
 
         // solution 2
-        Map<Integer, Boolean> map = new HashMap<>();
-        for (int i : nums)
-            if (map.containsKey(i))
-                map.remove(i);
-            else
-                map.put(i, true);
-        for (Map.Entry<Integer, Boolean> entry : map.entrySet())
-            return entry.getKey();
+//        Map<Integer, Boolean> map = new HashMap<>();
+//        for (int i : nums)
+//            if (map.containsKey(i))
+//                map.remove(i);
+//            else
+//                map.put(i, true);
+//        for (Map.Entry<Integer, Boolean> entry : map.entrySet())
+//            return entry.getKey();
+//        return 0;
+
+        // solution 3
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i : nums) {
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+        for (int i : nums) {
+            if (map.get(i) == 1) {
+                return i;
+            }
+        }
         return 0;
-
-
     }
 
     public static void main(String[] args) {
